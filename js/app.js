@@ -10,7 +10,7 @@ const displyCocktail = (cocktails) => {
     const cocktailContainer = document.getElementById('cocktail-container');
     cocktailContainer.innerHTML = '';
 
-    cocktails.forEach(drink => {       
+    cocktails.forEach(drink => {
         const div = document.createElement('div')
         div.classList.add('col')
         div.innerHTML = `
@@ -24,22 +24,31 @@ const displyCocktail = (cocktails) => {
             </div>
         </div>
         `;
-         cocktailContainer.appendChild(div)
+        cocktailContainer.appendChild(div)
     });
-    
+
 }
 
 
-document.getElementById('search-btn').addEventListener('click', function(){
+document.getElementById('search-btn').addEventListener('click', function () {
     const searchField = document.getElementById('search-field');
     const searchText = searchField.value;
     loadCocktail(searchText);
 })
 
+// Search Field Enter
+
+document.getElementById('search-field').addEventListener('keyup', function (event) {
+    if (event.key === 'Enter') {
+        const searchField = document.getElementById('search-field');
+        const searchText = searchField.value;
+        loadCocktail(searchText);
+    }
+})
 // Delete button
 
-document.getElementById('cocktail-container').addEventListener('click', function(event){
-    if(event.target.classList.contains('btn-warning')){
+document.getElementById('cocktail-container').addEventListener('click', function (event) {
+    if (event.target.classList.contains('btn-warning')) {
         let div = event.target.parentNode.parentNode;
         div.remove();
     }
