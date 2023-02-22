@@ -38,7 +38,12 @@ document.getElementById('search-btn').addEventListener('click', function(){
 
 // Delete button
 
-
+document.getElementById('cocktail-container').addEventListener('click', function(event){
+    if(event.target.classList.contains('btn-warning')){
+        let div = event.target.parentNode.parentNode;
+        div.remove();
+    }
+})
 
 loadCocktail('margarita');
 
